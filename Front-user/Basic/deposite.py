@@ -285,10 +285,10 @@ class PythonOrgSearch(unittest.TestCase):
 
     def tearDown(self):
         time.sleep(3)
-        # self.driver.save_screenshot("login.PNG")
-        # allure.attach.file(r"login.PNG", "screenshot",attachment_type=allure.attachment_type.PNG)
-        # time.sleep(3)
-        # self.driver.quit()
+        self.driver.save_screenshot("deposite.PNG")
+        allure.attach.file(r"deposite.PNG", "screenshot",attachment_type=allure.attachment_type.PNG)
+        time.sleep(3)
+        self.driver.quit()
 
 if __name__ == "__main__":
     unittest.main()
