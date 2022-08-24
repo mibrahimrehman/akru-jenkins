@@ -47,7 +47,6 @@ class Test_signup(unittest.TestCase):
         self.driver = csk.get_driver()
         driverl = self.driver
 
-        #self.test_search_in_python_org_login(self.driver)
 
         
 

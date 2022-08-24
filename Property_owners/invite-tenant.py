@@ -105,8 +105,9 @@ class Test_signup(unittest.TestCase):
             raise Exception
 
 
+       #comment
         try:
-            checkemailmodale=wait.until(EC.visibility_of_element_located((By.XPATH,"//div[@class='mg_fj mg_fl _n']")))
+            emailmodale=wait.until(EC.visibility_of_element_located((By.XPATH,"//div[@class='mg_fj mg_fl _n']")))
             print('SUCCESS: email sended modal appeared')
         except:
             print("FAILED: email sended modal could not be appeared")
@@ -165,7 +166,7 @@ class Test_signup(unittest.TestCase):
         try:
             firstname=wait.until(EC.element_to_be_clickable((By.XPATH,"//input[@name='email']")))
             firstname.click()
-            firstname.send_keys("tenantav1@yopmai.com")
+            firstname.send_keys("tenantav5@yopmai.com")
             print('SUCCESS: Email entered successfully')
         except:
             print("FAILED: Email could not be entered successfully")

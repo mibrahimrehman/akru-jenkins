@@ -1,5 +1,4 @@
 #from lib2to3.pgen2 import driver
-import imp
 import unittest
 from selenium import webdriver
 import time
@@ -11,6 +10,8 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.action_chains import ActionChains
 import allure
+from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.chrome.service import Service as ChromeService
 #from goto import label
 
 class PythonOrgSearch(unittest.TestCase):
@@ -18,13 +19,15 @@ class PythonOrgSearch(unittest.TestCase):
     def setUp(self):
         WINDOW_SIZE = "1920,1080"
         chrome_options = Options()
-        chrome_options.add_argument("--headless")
+        #chrome_options.add_argument("--headless")
         chrome_options.add_argument("--window-size=%s" % WINDOW_SIZE)
         chrome_options.add_argument('--no-sandbox')
         # s = Service('/home/ubuntu/script/pipeline/test/chromdriver/chromedriver')
         #s = Service('/Users/qualityassurance/Desktop/automation-scripts/AVAXDEV_SHAHWAR/chromedriver')
-        PATH = "chromedriver"
-        self.driver = webdriver.Chrome(PATH, options=chrome_options)
+        # PATH = "chromedriver"
+        # self.driver = webdriver.Chrome(PATH, options=chrome_options)
+        service = ChromeService(executable_path=ChromeDriverManager().install())
+        self.driver = webdriver.Chrome(service=service , options=chrome_options)
 
     def test_search_in_python_org(self):
         self.driver.maximize_window()
