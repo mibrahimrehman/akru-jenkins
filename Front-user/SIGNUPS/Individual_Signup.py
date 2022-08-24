@@ -14,7 +14,6 @@ from selenium.webdriver.common.action_chains import ActionChains
 import os
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.service import Service as ChromeService
-from PIL import Image
 import allure
 
 class test_invite(unittest.TestCase):
@@ -523,7 +522,7 @@ class test_invite(unittest.TestCase):
     def tearDown(self):
         time.sleep(5)
         self.driver.save_screenshot("idsig.png")
-        screenshot = Image.open("idsig.png")
+        #screenshot = Image.open("idsig.png")
         allure.attach.file(r"idsig.png", "screenshot",attachment_type=allure.attachment_type.PNG)
         time.sleep(3)
         self.driver.quit()
