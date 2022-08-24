@@ -80,7 +80,7 @@ class test_invite(unittest.TestCase):
             raise Exception
 
         try:
-            starterPackageSelect=wait.until(EC.element_to_be_clickable((By.XPATH,'//button[text()="Select this plan"]')))
+            starterPackageSelect=wait.until(EC.element_to_be_clickable((By.XPATH,"//p[text()='Target Diversification 1 - 5 Properties']/parent::div//button")))
             starterPackageSelect.click()
             print('SUCCESS: Select this plan button is clicked for starter packages')
         except:
