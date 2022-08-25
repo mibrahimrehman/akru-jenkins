@@ -87,6 +87,14 @@ class test_invite(unittest.TestCase):
             print("FAILED: Select this plan button could not be clicked for starter packages")
             raise Exception
 
+        try:
+            risktoleranceplan=wait.until(EC.element_to_be_clickable((By.XPATH,"//div[@class='service-inner']//button")))
+            risktoleranceplan.click()
+            print('SUCCESS: Select this plan button is clicked for Risk Tolerance')
+        except:
+            print("FAILED: Select this plan button could not be clicked for Risk Tolerace")
+            raise Exception
+
 
         try:
             fnameToBeEntered=wait.until(EC.element_to_be_clickable((By.XPATH,'//input[@name = "firstName"]')))
@@ -376,20 +384,6 @@ class test_invite(unittest.TestCase):
             print("FAILED: Agreement 3 could not be checked")
             raise Exception
 
-        try:
-            checkingAgreement3=wait.until(EC.presence_of_element_located((By.XPATH,'//input[@name="point4"]')))
-            checkingAgreement3.click()
-            print('SUCCESS: Agreement 4 checked')
-        except:
-            print("FAILED: Agreement 4 could not be checked")
-            raise Exception
-        try:
-            checkingAgreement3=wait.until(EC.presence_of_element_located((By.XPATH,'//input[@name="point5"]')))
-            checkingAgreement3.click()
-            print('SUCCESS: Agreement 5 checked')
-        except:
-            print("FAILED: Agreement 5 could not be checked")
-            raise Exception
 
         
         try:
