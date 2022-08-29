@@ -20,7 +20,7 @@ class PythonOrgSearch(unittest.TestCase):
     def setUp(self):
         WINDOW_SIZE = "1920,1080"
         chrome_options = Options()
-        chrome_options.add_argument("--headless")
+        #chrome_options.add_argument("--headless")
         chrome_options.add_argument("--window-size=%s" % WINDOW_SIZE)
         chrome_options.add_argument('--no-sandbox')
         # s = Service('/home/ubuntu/script/pipeline/test/chromdriver/chromedriver')
@@ -645,6 +645,8 @@ class PythonOrgSearch(unittest.TestCase):
 
         time.sleep(3)
         try:
+            AcceptButtonOnCounterOffer=wait.until(EC.element_to_be_clickable((By.ID, 'buttonaccept1')))
+            time.sleep(1)
             AcceptButtonOnCounterOffer=wait.until(EC.element_to_be_clickable((By.ID, 'buttonaccept1')))
             AcceptButtonOnCounterOffer.click()
             print('SUCCESS: Accept button is clicked by the seller')

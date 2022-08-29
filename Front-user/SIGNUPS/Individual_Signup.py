@@ -21,7 +21,7 @@ class test_invite(unittest.TestCase):
     def setUp(self):
         WINDOW_SIZE = "1920,1080"
         chrome_options = Options()
-        chrome_options.add_argument("--headless")
+        #chrome_options.add_argument("--headless")
         chrome_options.add_argument("--disable-gpu")
         chrome_options.add_argument("--window-size=%s" % WINDOW_SIZE)
         chrome_options.add_argument('--no-sandbox')
@@ -36,7 +36,7 @@ class test_invite(unittest.TestCase):
 
     def test_search_in_python_org(self):
         self.driver.maximize_window()
-        url = "https://avaxdev.akru.co"
+        url = "https://postdev.akru.co"
         fname = names.get_first_name()
         lname = names.get_last_name()
         email = fname + lname + '123@yopmail.com'
@@ -87,13 +87,13 @@ class test_invite(unittest.TestCase):
             print("FAILED: Select this plan button could not be clicked for starter packages")
             raise Exception
 
-        try:
-            risktoleranceplan=wait.until(EC.element_to_be_clickable((By.XPATH,"//div[@class='service-inner']//button")))
-            risktoleranceplan.click()
-            print('SUCCESS: Select this plan button is clicked for Risk Tolerance')
-        except:
-            print("FAILED: Select this plan button could not be clicked for Risk Tolerace")
-            raise Exception
+        # try:
+        #     risktoleranceplan=wait.until(EC.element_to_be_clickable((By.XPATH,"//div[@class='service-inner']//button")))
+        #     risktoleranceplan.click()
+        #     print('SUCCESS: Select this plan button is clicked for Risk Tolerance')
+        # except:
+        #     print("FAILED: Select this plan button could not be clicked for Risk Tolerace")
+        #     raise Exception
 
 
         try:
@@ -255,7 +255,7 @@ class test_invite(unittest.TestCase):
         time.sleep(10)
         self.driver.execute_script("window.open('');")
         self.driver.switch_to.window(self.driver.window_handles[1])
-        self.driver.get('https://avaxdevapi.akru.co/api/user/showOtp/'+email)
+        self.driver.get('https://postdevapi.akru.co/api/user/showOtp/'+email)
         otp = wait.until(EC.element_to_be_clickable((By.XPATH, '/html/body/pre')))
         otp_array = list(otp.text)
         otp_code = otp_array[39] + otp_array[40] + \
@@ -383,15 +383,29 @@ class test_invite(unittest.TestCase):
         except:
             print("FAILED: Agreement 3 could not be checked")
             raise Exception
+        try:
+            checkingAgreement3=wait.until(EC.presence_of_element_located((By.XPATH,'//input[@name="point4"]')))
+            checkingAgreement3.click()
+            print('SUCCESS: Agreement 4 checked')
+        except:
+            print("FAILED: Agreement 4 could not be checked")
+            raise Exception
+        try:
+            checkingAgreement3=wait.until(EC.presence_of_element_located((By.XPATH,'//input[@name="point5"]')))
+            checkingAgreement3.click()
+            print('SUCCESS: Agreement 5 checked')
+        except:
+            print("FAILED: Agreement 5 could not be checked")
+            raise Exception
 
 
         
         try:
             ContinueButtonAfterCheckingAgreements=wait.until(EC.element_to_be_clickable((By.XPATH,'//button[@class="primary-btn ml-auto d-block"]')))
             ContinueButtonAfterCheckingAgreements.click()
-            print('SUCCESS: Continue button clicked after checking all 3 agreements')
+            print('SUCCESS: Continue button clicked after checking all 5 agreements')
         except:
-            print("FAILED: Continue button could not be clicked after checking all 3 agreements")
+            print("FAILED: Continue button could not be clicked after checking all 5 agreements")
             raise Exception
 
         time.sleep(5)
