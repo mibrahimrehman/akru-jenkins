@@ -160,12 +160,7 @@ class PythonOrgSearch(unittest.TestCase):
             print('SUCCESS: Toaster Appeared')
         except:
             print('FAILED: Toaster could not be appeared')
-            response = win32ui.MessageBox("Would like to wait more?", "Loading", win32con.MB_YESNOCANCEL)
-            if response == win32con.IDYES:
-                print("yes wait")
-                time.sleep(100)
-            elif response == win32con.IDNO:
-                print("No wait")
+           
 
 
 
@@ -502,14 +497,7 @@ class PythonOrgSearch(unittest.TestCase):
             CounterOfferPlacedSuccessfullyToasterMessage.click()
         else:
             print('\nFAILED: Counter offer placed successfully toaster could not be appeared. Instead toaster with the text: "'+CounterOfferPlacedSuccessfullyToasterMessage.text+'" appeared\n')
-            response = win32ui.MessageBox("Do you want to retry counter", "Trouble", win32con.MB_YESNO)
-            if response == win32con.IDYES:
-                print("retry from counter")
-                self.driver.refresh()
-            elif response == win32con.IDNO:
-                print("You pressed no")
-                raise Exception
-
+        
         time.sleep(3)
         try:
             LogoutIcon=wait.until(EC.visibility_of_element_located((By.ID, "Path_679")))
