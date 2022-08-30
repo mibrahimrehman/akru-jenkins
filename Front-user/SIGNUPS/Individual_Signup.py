@@ -21,7 +21,7 @@ class test_invite(unittest.TestCase):
     def setUp(self):
         WINDOW_SIZE = "1920,1080"
         chrome_options = Options()
-        chrome_options.add_argument("--headless")
+        #chrome_options.add_argument("--headless")
         chrome_options.add_argument("--disable-gpu")
         chrome_options.add_argument("--window-size=%s" % WINDOW_SIZE)
         chrome_options.add_argument('--no-sandbox')
@@ -348,7 +348,16 @@ class test_invite(unittest.TestCase):
         except:
             print("FAILED: Employement status , unemployed is not selected")
             raise Exception
-        
+
+
+        try:
+            addbanklater=wait.until(EC.visibility_of_element_located((By.XPATH,"//input[@name='veryLow']")))
+            addbanklater.click()
+            print('SUCCESS:  Will add bank later is clicked')
+        except:
+            print("FAILED:  Will add bank later could not be clicked")
+            raise Exception
+
 
         try:
             skipAddingBankButton=wait.until(EC.visibility_of_element_located((By.XPATH,'//button[text()="Next"]')))
