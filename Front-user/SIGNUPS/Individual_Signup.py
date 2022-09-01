@@ -451,6 +451,7 @@ class test_invite(unittest.TestCase):
 
         time.sleep(2)
         #commentment2
+        #comme
         try:
             magicButtonFromSignupModal=wait.until(EC.element_to_be_clickable((By.XPATH,'//div[@class="donwload-btn"]')))
             magicButtonFromSignupModal.click()
