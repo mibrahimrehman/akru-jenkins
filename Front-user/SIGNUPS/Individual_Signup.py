@@ -453,7 +453,9 @@ class test_invite(unittest.TestCase):
         #commentment2
         #comme
         try:
-            magicButtonFromSignupModal=wait.until(EC.element_to_be_clickable((By.XPATH,'//div[@class="donwload-btn"]')))
+            magicButtonFromSignupModal=wait.until(EC.element_to_be_clickable((By.XPATH ,"//div[@class='donwload-btn']")))
+            time.sleep(3)
+            magicButtonFromSignupModal=wait.until(EC.element_to_be_clickable((By.XPATH ,"//div[@class='donwload-btn']")))
             magicButtonFromSignupModal.click()
             print('SUCCESS: Magic button is clicked from signup modal')
         except:
