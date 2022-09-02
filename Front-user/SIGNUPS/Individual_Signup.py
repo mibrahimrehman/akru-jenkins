@@ -439,6 +439,8 @@ class test_invite(unittest.TestCase):
             time.sleep(2)
             VerifyInfoButtonAtStep5=wait.until(EC.element_to_be_clickable((By.XPATH,'//button[@class="primary-btn ml-auto d-block"]')))
             VerifyInfoButtonAtStep5.click()
+            time.sleep(2)
+            VerifyInfoButtonAtStep5.click()
             print('SUCCESS: Verify button at step 5 is clicked')
         except:
             print("FAILED: Verify button at step 5 could not be clicked")
