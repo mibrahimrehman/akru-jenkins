@@ -45,6 +45,7 @@ class test_invite(unittest.TestCase):
 
         action = ActionChains (self.driver)
         def clearTextField():
+            print("In The Clear Function")
             action.key_down(Keys.COMMAND).perform()
             action.send_keys('a').perform()
             action.key_up(Keys.COMMAND).perform()
