@@ -244,7 +244,7 @@ class test_invite(unittest.TestCase):
             action.key_up(Keys.COMMAND).perform()
             action.send_keys(Keys.BACK_SPACE).perform()
 
-            zipCodeToBeEntered.send_keys('45209')
+            zipCodeToBeEntered.send_keys('22000')
             print('SUCCESS: Zip code is entered')
         except:
             print("FAILED: Zip code could not be entered")
