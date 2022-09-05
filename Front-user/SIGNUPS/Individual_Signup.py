@@ -21,7 +21,7 @@ class test_invite(unittest.TestCase):
     def setUp(self):
         WINDOW_SIZE = "1920,1080"
         chrome_options = Options()
-        #chrome_options.add_argument("--headless")
+        chrome_options.add_argument("--headless")
         chrome_options.add_argument("--disable-gpu")
         chrome_options.add_argument("--window-size=%s" % WINDOW_SIZE)
         chrome_options.add_argument('--no-sandbox')
@@ -242,7 +242,7 @@ class test_invite(unittest.TestCase):
             action.send_keys('a').perform()
             action.key_up(Keys.COMMAND).perform()
             action.send_keys(Keys.BACK_SPACE).perform()
-            
+
             zipCodeToBeEntered.send_keys('45209')
             print('SUCCESS: Zip code is entered')
         except:
