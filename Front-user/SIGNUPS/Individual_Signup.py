@@ -21,7 +21,8 @@ class test_invite(unittest.TestCase):
     def setUp(self):
         WINDOW_SIZE = "1920,1080"
         chrome_options = Options()
-        chrome_options.add_argument("--headless")
+        
+        #chrome_options.add_argument("--headless")
         chrome_options.add_argument("--disable-gpu")
         chrome_options.add_argument("--window-size=%s" % WINDOW_SIZE)
         chrome_options.add_argument('--no-sandbox')
@@ -237,9 +238,13 @@ class test_invite(unittest.TestCase):
 
         try:
             zipCodeToBeEntered=wait.until(EC.element_to_be_clickable((By.XPATH,'//input[@name="zipCode"]')))
+            time.sleep(2)
+            self.driver.find_element(By.XPATH, '//input[@name="zipCode"]').clear()
+            time.sleep(3)
             zipCodeToBeEntered.click()
-            zipCodeToBeEntered.send_keys(Keys.COMMAND + 'a')
-            zipCodeToBeEntered.send_keys(Keys.BACK_SPACE)
+            #zipCodeToBeEntered.clearTextField()
+            # zipCodeToBeEntered.send_keys(Keys.COMMAND + 'a')
+            # zipCodeToBeEntered.send_keys(Keys.BACK_SPACE)
             
 
             zipCodeToBeEntered.send_keys('22000')
