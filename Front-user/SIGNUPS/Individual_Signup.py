@@ -238,14 +238,9 @@ class test_invite(unittest.TestCase):
         try:
             zipCodeToBeEntered=wait.until(EC.element_to_be_clickable((By.XPATH,'//input[@name="zipCode"]')))
             zipCodeToBeEntered.click()
+            zipCodeToBeEntered.send_keys(Keys.COMMAND + 'a')
+            zipCodeToBeEntered.send_keys(Keys.BACK_SPACE)
             
-            #clearTextField()
-           # zipCodeToBeEntered.send_keys(Keys.CONTROL, 'a')
-            #zipCodeToBeEntered.send_keys(Keys.DELETE)
-            action.key_down(Keys.COMMAND).perform()
-            action.send_keys('a').perform()
-            action.key_up(Keys.COMMAND).perform()
-            action.send_keys(Keys.BACK_SPACE).perform()
 
             zipCodeToBeEntered.send_keys('22000')
             print('SUCCESS: Zip code is entered')
