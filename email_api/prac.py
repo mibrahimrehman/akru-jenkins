@@ -4,13 +4,18 @@ from selenium.webdriver.chrome.service import Service as ChromeService
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.chrome.options import Options
 import allure
 
 import time
+
+chrome_options = Options()
+        
+chrome_options.add_argument("--headless")
 #browser exposes an executable file
 #Through Selenium test we will invoke the executable file which will then #invoke actual browser
 service = ChromeService(executable_path=ChromeDriverManager().install())
-driver = webdriver.Chrome(service=service)
+driver = webdriver.Chrome(service=service , options=chrome_options)
 action = ActionChains (driver)
 #driver = webdriver.Chrome(executable_path="C:\chromedriver.exe")
 # to maximize the browser window
