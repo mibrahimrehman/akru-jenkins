@@ -53,7 +53,7 @@ class test_invite(unittest.TestCase):
 # driver.find_element(By.XPATH("//input[@name='key']")).clear()
 
         username_input = driver.find_element(By.XPATH, '//input[@name="zipCode"]')
-        username_input.send_keys("00")
+        username_input.send_keys("000")
         time.sleep(3)
         action.key_down(Keys.COMMAND).perform()
         action.send_keys('a').perform()
