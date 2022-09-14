@@ -179,8 +179,8 @@ class PythonOrgSearch(unittest.TestCase):
         try:
             #Property=wait.until(EC.element_to_be_clickable((By.ID, propertyIDGoalNotReached)))
             #Property.click()
-            self.driver.get("https://avaxdev.akru.co/property/own-property-rawalpindi-california?id=62b565f5659bb93d76ad0d68")
-            print('SUCCESS: Automation Property clicked from URL')
+            self.driver.get("https://avaxdev.akru.co/property/gnr-property-california-alabama?id=6321c23892d30b3776044525")
+            print('SUCCESS: GNR Property clicked from URL')
         except:
             print('FAILED: Could not click property from listing')
             raise Exception
