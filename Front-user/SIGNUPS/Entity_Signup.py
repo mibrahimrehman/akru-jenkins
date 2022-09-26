@@ -1,6 +1,7 @@
 from pickle import FALSE
 import unittest
 from selenium import webdriver
+
 import time
 import names
 from selenium.webdriver.support.ui import WebDriverWait
@@ -22,7 +23,7 @@ class PythonOrgSearch(unittest.TestCase):
     def setUp(self):
         WINDOW_SIZE = "1920,1080"
         chrome_options = Options()
-        chrome_options.add_argument("--headless")
+        #chrome_options.add_argument("--headless")
         chrome_options.add_argument("--disable-gpu")
         chrome_options.add_argument("--window-size=%s" % WINDOW_SIZE)
         chrome_options.add_argument('--no-sandbox')
@@ -43,6 +44,9 @@ class PythonOrgSearch(unittest.TestCase):
         fnameRep = names.get_first_name()
         lnameRep = names.get_last_name()
         emailRep = fnameRep+lnameRep+'123@yopmail.com'
+        filepath = os.path.abspath("blank.pdf")
+
+
 
         action = ActionChains (self.driver)
         def clearTextField():
@@ -265,15 +269,7 @@ class PythonOrgSearch(unittest.TestCase):
             print("FAILED: EIN number could not be entered")
             raise Exception
 
-        try:
-            CertificateOfFormationToBeUploaded=self.driver.find_element(By.XPATH, '//div[1]/input[@type="file"]')
-            filepath = os.path.abspath("blank.pdf")
-            CertificateOfFormationToBeUploaded.send_keys(filepath)
-            # CertificateOfFormationToBeUploaded.send_keys("/Users/qualityassurance/Desktop/automation-scripts/AVAXDEV_SHAHWAR/blank.pdf")
-            print('SUCCESS: Certificate of Formation is uploaded')
-        except:
-            print("FAILED: Certificate of Formation could not be uploaded")
-            raise Exception
+        
 
         try:
             OperatingAgreementToBeUploaded=self.driver.find_element(By.XPATH, '//div[2]/input[@type="file"]')
@@ -294,6 +290,7 @@ class PythonOrgSearch(unittest.TestCase):
             raise Exception
 
         try:
+            time.sleep(3)
             addressToBeEntered=wait.until(EC.element_to_be_clickable((By.XPATH,'//input[@name="address"]')))
             addressToBeEntered.click()
             clearTextField()
@@ -306,6 +303,8 @@ class PythonOrgSearch(unittest.TestCase):
             raise Exception
 
         try:
+            time.sleep(3)
+
             stateToBeSelected=wait.until(EC.element_to_be_clickable((By.XPATH,'//select[@name="stateName"]')))
             stateToBeSelected.click()
             for option in self.driver.find_elements(By.XPATH, '//select[@name="stateName"]//option[@value="Ohio"]'):
@@ -318,6 +317,7 @@ class PythonOrgSearch(unittest.TestCase):
             raise Exception
 
         try:
+            time.sleep(3)
             cityToBeEntered=wait.until(EC.element_to_be_clickable((By.XPATH,'//input[@name="city"]')))
             cityToBeEntered.click()
             clearTextField()
@@ -328,6 +328,7 @@ class PythonOrgSearch(unittest.TestCase):
             raise Exception
 
         try:
+            time.sleep(3)
             zipCodeToBeEntered=wait.until(EC.element_to_be_clickable((By.XPATH,'//input[@name="zipCode"]')))
             zipCodeToBeEntered.click()
             clearTextField()
@@ -338,6 +339,7 @@ class PythonOrgSearch(unittest.TestCase):
             raise Exception
 
         try:
+            time.sleep(3)
             titleToBeSelected=wait.until(EC.element_to_be_clickable((By.XPATH,'//select[@name="title"]')))
             titleToBeSelected.click()
             for option in self.driver.find_elements(By.XPATH, '//select[@name="title"]//option[@value="CTO"]'):
@@ -350,6 +352,7 @@ class PythonOrgSearch(unittest.TestCase):
             raise Exception
 
         try:
+            time.sleep(3)
             fnameToBeEntered=wait.until(EC.element_to_be_clickable((By.XPATH,'//input[@name = "firstName"]')))
             fnameToBeEntered.click()
             clearTextField()
@@ -360,6 +363,7 @@ class PythonOrgSearch(unittest.TestCase):
             raise Exception
 
         try:
+            time.sleep(3)
             lnameToBeEntered=wait.until(EC.element_to_be_clickable((By.XPATH,'//input[@name = "lastName"]')))
             lnameToBeEntered.click()
             clearTextField()
@@ -370,6 +374,7 @@ class PythonOrgSearch(unittest.TestCase):
             raise Exception
 
         try:
+            time.sleep(3)
             emailToBeEntered=wait.until(EC.element_to_be_clickable((By.XPATH,'//input[@name = "email"]')))
             emailToBeEntered.click()
             clearTextField()
@@ -380,6 +385,7 @@ class PythonOrgSearch(unittest.TestCase):
             raise Exception
 
         try:
+            time.sleep(3)
             addressToBeEntered=wait.until(EC.element_to_be_clickable((By.XPATH,'//input[@name = "address1"]')))
             addressToBeEntered.click()
             clearTextField()
@@ -390,6 +396,7 @@ class PythonOrgSearch(unittest.TestCase):
             raise Exception
 
         try:
+            time.sleep(3)
             RepPersonalIDToBeUploaded=self.driver.find_element(By.XPATH, '//div[3]/input[@type="file"]')
             pngfilepath = os.path.abspath("blank.png")
             RepPersonalIDToBeUploaded.send_keys(pngfilepath)
@@ -400,6 +407,7 @@ class PythonOrgSearch(unittest.TestCase):
             raise Exception
 
         try:
+            time.sleep(3)
             CityOfRepToBeEntered=wait.until(EC.element_to_be_clickable((By.XPATH,'//input[@name="city2"]')))
             CityOfRepToBeEntered.click()
             clearTextField()
@@ -410,6 +418,7 @@ class PythonOrgSearch(unittest.TestCase):
             raise Exception
 
         try:
+            time.sleep(3)
             StateofRepToBeSelected=wait.until(EC.element_to_be_clickable((By.XPATH,'//select[@name="stateName2"]')))
             StateofRepToBeSelected.click()
             for option in self.driver.find_elements(By.XPATH,'//select[@name="stateName2"]//option[@value="Ohio"]'):
@@ -422,6 +431,7 @@ class PythonOrgSearch(unittest.TestCase):
             raise Exception
 
         try:
+            time.sleep(3)
             zipCodeofRepToBeEntered=wait.until(EC.element_to_be_clickable((By.XPATH,'//input[@name="postalCode"]')))
             zipCodeofRepToBeEntered.click()
             clearTextField()
@@ -432,6 +442,7 @@ class PythonOrgSearch(unittest.TestCase):
             raise Exception
 
         try:
+            time.sleep(3)
             SSNToBeEntered=wait.until(EC.element_to_be_clickable((By.XPATH,'//input[@type="password"]')))
             SSNToBeEntered.send_keys('123456789')
             print('SUCCESS: SSN is entered')
@@ -440,6 +451,7 @@ class PythonOrgSearch(unittest.TestCase):
             raise Exception
 
         try:
+            time.sleep(3)
             verfiybuttonToSendOTP=wait.until(EC.element_to_be_clickable((By.XPATH,'//button[text()="verify"]')))
             verfiybuttonToSendOTP.click()
             print('SUCCESS: Verify button is clicked to verify phone number')
@@ -460,6 +472,7 @@ class PythonOrgSearch(unittest.TestCase):
         self.driver.switch_to.window(self.driver.window_handles[0])
         
         try:
+            time.sleep(3)
             otptobeentered = wait.until(EC.element_to_be_clickable((By.XPATH, '//input[@name="otp"]')))
             otptobeentered.send_keys(otp_code)
             print('SUCCESS: OTP is entered')
@@ -468,6 +481,7 @@ class PythonOrgSearch(unittest.TestCase):
             raise Exception
         
         try:
+            time.sleep(3)
             dobToBeEntered=wait.until(EC.element_to_be_clickable((By.ID,'date-picker-dialog')))
             dobToBeEntered.send_keys(Keys.BACKSPACE)
             dobToBeEntered.send_keys('11/07/2001')
@@ -477,12 +491,25 @@ class PythonOrgSearch(unittest.TestCase):
             raise Exception
 
         try:
+            time.sleep(3)
             dobToBeEntered=wait.until(EC.element_to_be_clickable((By.XPATH,"//label[text()='Date of Birth']/parent::*/child::div//input")))
             dobToBeEntered.send_keys(Keys.BACKSPACE)
             dobToBeEntered.send_keys('11/07/2001')
             print('SUCCESS: Date of Birth is entered')
         except:
             print("FAILED: Could not enter date of birth")
+            raise Exception
+
+        try:
+            time.sleep(3)
+            CertificateOfFormationToBeUploaded=self.driver.find_element(By.XPATH, '//div[1]/input[@type="file"]')
+            time.sleep(2)
+            CertificateOfFormationToBeUploaded=self.driver.find_element(By.XPATH, '//div[1]/input[@type="file"]')
+            CertificateOfFormationToBeUploaded.send_keys(filepath)
+            # CertificateOfFormationToBeUploaded.send_keys("/Users/qualityassurance/Desktop/automation-scripts/AVAXDEV_SHAHWAR/blank.pdf")
+            print('SUCCESS: Certificate of Formation is uploaded')
+        except:
+            print("FAILED: Certificate of Formation could not be uploaded")
             raise Exception
         
         try:

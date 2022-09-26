@@ -413,13 +413,13 @@ class PythonOrgSearch(unittest.TestCase):
             raise Exception
 
         #time.sleep(3)
-        try:
-            InvestNowButton=wait.until(EC.element_to_be_clickable((By.ID, "singleProperty-secondary-invest")))
-            InvestNowButton.click()
-            print('SUCCESS: Invest Now button clicked')
-        except:
-            print('FAILED: Could not click Invest Now button')
-            raise Exception
+        # try:
+        #     InvestNowButton=wait.until(EC.element_to_be_clickable((By.ID, "singleProperty-secondary-invest")))
+        #     InvestNowButton.click()
+        #     print('SUCCESS: Invest Now button clicked')
+        # except:
+        #     print('FAILED: Could not click Invest Now button')
+        #     raise Exception
         try:
             time.sleep(2)
             InvestNowButton=wait.until(EC.element_to_be_clickable((By.XPATH, "//input[@type='checkbox']/parent::span/parent::span")))
