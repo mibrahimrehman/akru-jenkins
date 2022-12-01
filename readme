@@ -1,1 +1,7 @@
-this is file need to clone to run
+This repo is a made of scrips in python for multiple portal including
+admin
+user
+owner
+tenant etc
+you need to install chromium, pytest to run this
+you  may need admin authentications(Please contact customer support) 
